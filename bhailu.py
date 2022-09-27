@@ -26,19 +26,19 @@ def speak(text):
 def wishMe():
     hour=datetime.datetime.now().hour
     if hour>=0 and hour<12:
-        speak("Hello,Good Morning")
+        speak("Jai Shree ram, Kemcho")
         print("Hello,Good Morning")
     elif hour>=12 and hour<18:
-        speak("Hello,Good Afternoon")
+        speak("Jai Shree ram, Kemcho subhh bapor")
         print("Hello,Good Afternoon")
     else:
-        speak("Hello,Good Evening")
+        speak("Jai Shree ram, Kemcho subh ratrii")
         print("Hello,Good Evening")
 
 def takeCommand():
     r=sr.Recognizer()
     with sr.Microphone() as source:
-        print("Go Ahead")
+        print("Aagad Bol")
         audio=r.listen(source)
 
         try:
@@ -46,11 +46,11 @@ def takeCommand():
             print(f"user said:{statement}\n")
 
         except Exception as e:
-            speak("Pardon me, please say that again")
+            speak("Pharithi Bol...")
             return "None"
         return statement
 
-speak("Bhailu Here bol")
+speak("Bhailu Here su chaale Dhairya")
 wishMe()
 
 
@@ -58,7 +58,7 @@ if __name__=='__main__':
 
 
     while True:
-        speak("Tell me how can I help you now?")
+        speak("Saheb su madad kari saku tamari")
         statement = takeCommand().lower()
         if statement==0:
             continue
@@ -130,7 +130,7 @@ if __name__=='__main__':
             speak(f"the time is {strTime}")
 
         elif 'who are you' in statement or 'what can you do' in statement:
-            speak('My name is Bhailu. I am programmed to minor tasks like'
+            speak('My name is Bhailu. I can talk in gujarati'
                   'I can open youtube,google chrome,gmail and stackoverflow ,predict time,take a photo,search wikipedia,predict weather' 
                   'in different cities , get top headline news from times of india and you can ask me computational or geographical questions too!')
 
@@ -148,7 +148,7 @@ if __name__=='__main__':
             speak('News coming up for you')
             time.sleep(6)
 
-        elif "camera" in statement or "take a photo" in statement:
+        elif "camera" in statement or "Photo le toh" in statement:
             ec.capture(0,"robo camera","img.jpg")
 
         elif 'search'  in statement:
@@ -156,8 +156,8 @@ if __name__=='__main__':
             webbrowser.open_new_tab(statement)
             time.sleep(5)
 
-        elif 'ask' in statement:
-            speak('I can answer to computational and geographical questions and what question do you want to ask now')
+        elif 'su aavde tane' in statement:
+            speak('Badhuj aavde tara bhai ne')
             question=takeCommand()
             app_id="R2K75H-7ELALHR35X"
             client = wolframalpha.Client('R2K75H-7ELALHR35X')
