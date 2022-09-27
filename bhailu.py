@@ -80,20 +80,20 @@ if __name__=='__main__':
 
         elif 'open youtube' in statement:
             webbrowser.open_new_tab("https://www.youtube.com")
-            speak("Youtube is available")
+            speak("Youtube kholiyu...")
             time.sleep(5)
 
         elif 'open google' in statement:
             webbrowser.open_new_tab("https://www.google.com")
-            speak("Google chrome is open")
+            speak("Google chrome kholiyu...")
             time.sleep(5)
 
         elif 'open gmail' in statement:
             webbrowser.open_new_tab("gmail.com")
-            speak("Google Mail open")
+            speak("Google Mail kholiyu...")
             time.sleep(5)
 
-        elif "weather" in statement:
+        elif "weather su che" in statement:
             api_key="8ef61edcf1c576d65d836254e11ea420"
             base_url="https://api.openweathermap.org/data/2.5/weather?"
             speak("City ??")
@@ -132,27 +132,27 @@ if __name__=='__main__':
         elif 'who are you' in statement or 'what can you do' in statement:
             speak('My name is Bhailu. I can talk in gujarati'
                   'I can open youtube,google chrome,gmail and stackoverflow ,predict time,take a photo,search wikipedia,predict weather' 
-                  'in different cities , get top headline news from times of india and you can ask me computational or geographical questions too!')
+                  'in different cities , get news too!')
 
 
         elif "who made you" in statement or "who created you" in statement or "who discovered you" in statement:
             speak("I was built by Dhairya B")
             print("I was built by Dhairya B")
 
-        elif "open stackoverflow" in statement:
-            webbrowser.open_new_tab("https://stackoverflow.com/login")
-            speak("There you go")
+        # elif "open stackoverflow" in statement:
+        #     webbrowser.open_new_tab("https://stackoverflow.com/login")
+        #     speak("There you go")
 
         elif 'news' in statement:
             news = webbrowser.open_new_tab("https://timesofindia.indiatimes.com/home/headlines")
-            speak('News coming up for you')
+            speak('News tara screen per')
             time.sleep(6)
 
         elif "camera" in statement or "Photo le toh" in statement:
             ec.capture(0,"robo camera","img.jpg")
 
-        elif 'search'  in statement:
-            statement = statement.replace("search", "")
+        elif 'sodh'  in statement:
+            statement = statement.replace("sodh", "")
             webbrowser.open_new_tab(statement)
             time.sleep(5)
 
@@ -168,7 +168,7 @@ if __name__=='__main__':
 
 
         elif "log off" in statement or "sign out" in statement:
-            speak("Ok , your pc will log off in 10 sec make sure you exit from all applications")
+            speak("10 Second ma bandh thai jase, Jai Shree Ram")
             subprocess.call(["shutdown", "/l"])
 
 time.sleep(3)
