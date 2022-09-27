@@ -135,9 +135,13 @@ if __name__=='__main__':
                   'in different cities , get news too!')
 
 
-        elif "who made you" in statement or "who created you" in statement or "who discovered you" in statement:
+        elif "who made you" in statement or "who created you" in statement or "who discovered you" in statement or"Konne banayu tane" in statement:
             speak("I was built by Dhairya B")
             print("I was built by Dhairya B")
+        
+        # elif "who made you" in statement or "who created you" in statement or "who discovered you" in statement:
+        #     speak("I was built by Dhairya B")
+        #     print("I was built by Dhairya B")
 
         # elif "open stackoverflow" in statement:
         #     webbrowser.open_new_tab("https://stackoverflow.com/login")
