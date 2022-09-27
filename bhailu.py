@@ -12,7 +12,7 @@ import json
 import requests
 
 
-print('Its your boi - Bhailu')
+print('AA taro bhai - Bhailu ahiyaa')
 
 engine=pyttsx3.init('sapi5')
 voices=engine.getProperty('voices')
@@ -58,7 +58,7 @@ if __name__=='__main__':
 
 
     while True:
-        speak("Saheb su madad kari saku tamari")
+        speak("Sahheb su madad kari saku tamari")
         statement = takeCommand().lower()
         if statement==0:
             continue
