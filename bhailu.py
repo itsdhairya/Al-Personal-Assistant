@@ -26,19 +26,19 @@ def speak(text):
 def wishMe():
     hour=datetime.datetime.now().hour
     if hour>=0 and hour<12:
-        speak("Jai Shree ram, Kemcho")
+        speak("Hello,Good Morning")
         print("Hello,Good Morning")
     elif hour>=12 and hour<18:
-        speak("Jai Shree ram, Kemcho subhh bapor")
+        speak("Hello,Good Afternoon")
         print("Hello,Good Afternoon")
     else:
-        speak("Jai Shree ram, Kemcho subh ratrii")
+        speak("Hello,Good Evening")
         print("Hello,Good Evening")
 
 def takeCommand():
     r=sr.Recognizer()
     with sr.Microphone() as source:
-        print("Aagad Bol")
+        print("Go Ahead")
         audio=r.listen(source)
 
         try:
@@ -46,11 +46,11 @@ def takeCommand():
             print(f"user said:{statement}\n")
 
         except Exception as e:
-            speak("Pharithi Bol...")
+            speak("Pardon me, please say that again")
             return "None"
         return statement
 
-speak("Bhailu Here su chaale Dhairya")
+speak("Bhailu Here How are you Dhairya")
 wishMe()
 
 
@@ -58,7 +58,7 @@ if __name__=='__main__':
 
 
     while True:
-        speak("Sahheb su madad kari saku tamari")
+        speak("How can I help you Dhairya")
         statement = takeCommand().lower()
         if statement==0:
             continue
@@ -80,20 +80,20 @@ if __name__=='__main__':
 
         elif 'open youtube' in statement:
             webbrowser.open_new_tab("https://www.youtube.com")
-            speak("Youtube kholiyu...")
+            speak("Youtube is available")
             time.sleep(5)
 
         elif 'open google' in statement:
             webbrowser.open_new_tab("https://www.google.com")
-            speak("Google chrome kholiyu...")
+            speak("Google chrome is open")
             time.sleep(5)
 
         elif 'open gmail' in statement:
             webbrowser.open_new_tab("gmail.com")
-            speak("Google Mail kholiyu...")
+            speak("Google Mail open")
             time.sleep(5)
 
-        elif "weather su che" in statement:
+        elif "Whats the weather" in statement:
             api_key="8ef61edcf1c576d65d836254e11ea420"
             base_url="https://api.openweathermap.org/data/2.5/weather?"
             speak("City ??")
@@ -135,13 +135,13 @@ if __name__=='__main__':
                   'in different cities , get news too!')
 
 
-        elif "who made you" in statement or "who created you" in statement or "who discovered you" in statement or"Konne banayu tane" in statement:
-            speak("I was built by Dhairya B")
-            print("I was built by Dhairya B")
-        
-        # elif "who made you" in statement or "who created you" in statement or "who discovered you" in statement:
+        # elif "who made you" in statement or "who created you" in statement or "who discovered you" in statement or"Konne banayu tane" in statement:
         #     speak("I was built by Dhairya B")
         #     print("I was built by Dhairya B")
+        
+        elif "who made you" in statement or "who created you" in statement or "who discovered you" in statement:
+            speak("I was built by Dhairya B")
+            print("I was built by Dhairya B")
 
         # elif "open stackoverflow" in statement:
         #     webbrowser.open_new_tab("https://stackoverflow.com/login")
@@ -155,7 +155,7 @@ if __name__=='__main__':
         elif "camera" in statement or "Photo le toh" in statement:
             ec.capture(0,"robo camera","img.jpg")
 
-        elif 'sodh'  in statement:
+        elif 'Search'  in statement:
             statement = statement.replace("sodh", "")
             webbrowser.open_new_tab(statement)
             time.sleep(5)
