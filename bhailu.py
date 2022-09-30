@@ -12,7 +12,7 @@ import json
 import requests
 
 
-print('AA taro bhai - Bhailu ahiyaa')
+print('Its - Bhailu BOT')
 
 engine=pyttsx3.init('sapi5')
 voices=engine.getProperty('voices')
@@ -130,8 +130,8 @@ if __name__=='__main__':
             speak(f"the time is {strTime}")
 
         elif 'who are you' in statement or 'what can you do' in statement:
-            speak('My name is Bhailu. I can talk in gujarati'
-                  'I can open youtube,google chrome,gmail and stackoverflow ,predict time,take a photo,search wikipedia,predict weather' 
+            speak('My name is Bhailu. I can communicate in english'
+                  'I can open youtube, google chrome, gmail ,predict time, take a photo,search wikipedia,predict weather' 
                   'in different cities , get news too!')
 
 
@@ -160,8 +160,8 @@ if __name__=='__main__':
             webbrowser.open_new_tab(statement)
             time.sleep(5)
 
-        elif 'su aavde tane' in statement:
-            speak('Badhuj aavde tara bhai ne')
+        elif 'What do you know' in statement:
+            speak('Search....')
             question=takeCommand()
             app_id="R2K75H-7ELALHR35X"
             client = wolframalpha.Client('R2K75H-7ELALHR35X')
