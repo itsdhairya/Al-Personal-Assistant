@@ -77,7 +77,7 @@ if __name__=='__main__':
             speak("According to Wikipedia")
             print(results)
             speak(results)
-
+            
         elif 'open youtube' in statement:
             webbrowser.open_new_tab("https://www.youtube.com")
             speak("Youtube is available")
