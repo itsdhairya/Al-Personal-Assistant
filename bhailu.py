@@ -70,7 +70,7 @@ if __name__=='__main__':
 
 
 
-        if 'wikipedia' in statement:
+        if 'open wikipedia' in statement:
             speak('Searching Wikipedia...')
             statement =statement.replace("wikipedia", "")
             results = wikipedia.summary(statement, sentences=3)
