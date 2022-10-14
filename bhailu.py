@@ -134,19 +134,7 @@ if __name__=='__main__':
                   'I can open youtube, google chrome, gmail ,predict time, take a photo,search wikipedia,predict weather' 
                   'in different cities , get news too!')
 
-
-<<<<<<< Updated upstream
-        # elif "who made you" in statement or "who created you" in statement or "who discovered you" in statement or"Konne banayu tane" in statement:
-=======
-        elif "Konne banayu tane" in statement:
-            speak("I was built by Dhairya B")
-            print("I was built by Dhairya B")
-        
-        # elif "who made you" in statement or "who created you" in statement or "who discovered you" in statement:
->>>>>>> Stashed changes
-        #     speak("I was built by Dhairya B")
-        #     print("I was built by Dhairya B")
-        
+     
         elif "who made you" in statement or "who created you" in statement or "who discovered you" in statement:
             speak("I was built by Dhairya B")
             print("I was built by Dhairya B")
@@ -155,12 +143,12 @@ if __name__=='__main__':
         #     webbrowser.open_new_tab("https://stackoverflow.com/login")
         #     speak("There you go")
 
-        elif 'news batay' in statement:
+        elif 'News' in statement:
             news = webbrowser.open_new_tab("https://news.google.com/search?pz=1&cf=all&hl=en-IN&q=Ahmedabad&gl=IN&ceid=IN:en")
             speak('News tara screen per')
             time.sleep(6)
 
-        elif "Photo le" in statement or "Photo le toh" in statement:
+        elif "Camera coming up" in statement or "Photo le toh" in statement:
             ec.capture(0,"robo camera","img.jpg")
 
         elif 'Search'  in statement:
