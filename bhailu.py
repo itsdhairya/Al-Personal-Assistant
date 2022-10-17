@@ -53,9 +53,7 @@ def takeCommand():
 speak("Bhailu Here How are you Dhairya")
 wishMe()
 
-
 if __name__=='__main__':
-
 
     while True:
         speak("How can I help you Dhairya")
@@ -67,8 +65,6 @@ if __name__=='__main__':
             speak('Bhailu off')
             print('Bhailu off')
             break
-
-
 
         if 'open wikipedia' in statement:
             speak('Searching Wikipedia...')
@@ -93,7 +89,7 @@ if __name__=='__main__':
             speak("Google Mail open")
             time.sleep(5)
 
-        elif "Whats the weather" in statement:
+        elif "weather" in statement:
             api_key="8ef61edcf1c576d65d836254e11ea420"
             base_url="https://api.openweathermap.org/data/2.5/weather?"
             speak("City ??")
@@ -123,8 +119,6 @@ if __name__=='__main__':
             else:
                 speak("What City, Again ?")
 
-
-
         elif 'time' in statement:
             strTime=datetime.datetime.now().strftime("%H:%M:%S")
             speak(f"the time is {strTime}")
@@ -132,7 +126,7 @@ if __name__=='__main__':
         elif 'who are you' in statement or 'what can you do' in statement:
             speak('My name is Bhailu. I can communicate in english'
                   'I can open youtube, google chrome, gmail ,predict time, take a photo,search wikipedia,predict weather' 
-                  'in different cities , get news too!')
+                  'in different cities , and get news!')
 
      
         elif "who made you" in statement or "who created you" in statement or "who discovered you" in statement:
@@ -168,7 +162,7 @@ if __name__=='__main__':
 
 
         elif "log off" in statement or "sign out" in statement:
-            speak("10 Second ma bandh thai jase, Jai Shree Ram")
+            speak("I shall shut the computer down... in 10 Seconds...")
             subprocess.call(["shutdown", "/l"])
 
 time.sleep(3)
