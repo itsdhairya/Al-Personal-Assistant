@@ -26,7 +26,7 @@ def speak(text):
 def wishMe():
     hour=datetime.datetime.now().hour
     if hour>=0 and hour<12:
-        speak("Hello,Good Morning")
+        speak("ok bhailu")
         print("Hello,Good Morning")
     elif hour>=12 and hour<18:
         speak("Hello,Good Afternoon")
@@ -50,20 +50,20 @@ def takeCommand():
             return "None"
         return statement
 
-speak("Bhailu Here How are you Dhairya")
+speak("Bot Here How are you ?")
 wishMe()
 
 if __name__=='__main__':
 
     while True:
-        speak("How can I help you Dhairya")
+        speak("How can I help you")
         statement = takeCommand().lower()
         if statement==0:
             continue
 
         if "good bye" in statement or "ok bye" in statement or "stop" in statement:
-            speak('Bhailu off')
-            print('Bhailu off')
+            speak('BOt off')
+            print('Bot off')
             break
 
         if 'open wikipedia' in statement:
@@ -124,7 +124,7 @@ if __name__=='__main__':
             speak(f"the time is {strTime}")
 
         elif 'who are you' in statement or 'what can you do' in statement:
-            speak('My name is Bhailu. I can communicate in english'
+            speak('My name is Bot. I can communicate in english'
                   'I can open youtube, google chrome, gmail ,predict time, take a photo,search wikipedia,predict weather' 
                   'in different cities , and get news!')
 
@@ -142,11 +142,11 @@ if __name__=='__main__':
             speak('News tara screen per')
             time.sleep(6)
 
-        elif "Camera coming up" in statement or "Photo le toh" in statement:
+        elif "Camera coming up" in statement or "Take a picture" in statement:
             ec.capture(0,"robo camera","img.jpg")
 
         elif 'Search'  in statement:
-            statement = statement.replace("sodh", "")
+            statement = statement.replace("Search", "")
             webbrowser.open_new_tab(statement)
             time.sleep(5)
 
