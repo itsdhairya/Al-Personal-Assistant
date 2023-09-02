@@ -11,28 +11,26 @@ import wolframalpha
 import json
 import requests
 
-print('Its - MY BOT')
-
+# Initialize text-to-speech engine
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
-engine.setProperty('voice', 'voices[0].id')
+engine.setProperty('voice', voices[0].id)
 
+# Helper function to speak text
 def speak(text):
     engine.say(text)
     engine.runAndWait()
 
 def wishMe():
     hour = datetime.datetime.now().hour
-    if hour >= 0 and hour < 12:
-        speak("ok BOT")
-        print("Hello,Good Morning")
-    elif hour >= 12 and hour < 18:
-        speak("Hello,Good Afternoon")
-        print("Hello,Good Afternoon")
+    if 0 <= hour < 12:
+        speak("Good Morning")
+    elif 12 <= hour < 18:
+        speak("Good Afternoon")
     else:
-        speak("Hello,Good Evening")
-        print("Hello,Good Evening")
+        speak("Good Evening")
 
+# Recognize user's speech
 def takeCommand():
     r = sr.Recognizer()
     with sr.Microphone() as source:
@@ -41,8 +39,7 @@ def takeCommand():
 
         try:
             statement = r.recognize_google(audio, language='en-in')
-            print(f"user said:{statement}\n")
-
+            print(f"user said: {statement}\n")
         except Exception as e:
             speak("Pardon me, please say that again")
             return "None"
@@ -73,6 +70,24 @@ def take_note():
             f.write(note + '\n')
         speak("Note saved successfully!")
 
+def get_weather(city_name):
+    api_key = "8ef61edcf1c576d65d836254e11ea420"
+    base_url = "https://api.openweathermap.org/data/2.5/weather?"
+    complete_url = f"{base_url}appid={api_key}&q={city_name}"
+    
+    response = requests.get(complete_url)
+    data = response.json()
+
+    if data["cod"] == 200:
+        weather = data["weather"][0]["description"]
+        temp = data["main"]["temp"]
+        humidity = data["main"]["humidity"]
+        speak(f"The weather in {city_name} is {weather}. "
+              f"The temperature is {temp:.2f} Kelvin and the humidity is {humidity}%.")
+    else:
+        speak("Sorry, I couldn't fetch the weather information.")
+
+# Read saved notes from a file
 def read_notes():
     try:
         with open('notes.txt', 'r') as f:
@@ -86,14 +101,16 @@ def read_notes():
     except FileNotFoundError:
         speak("No notes found.")
 
-speak("Bot Here How are you ?")
-wishMe()
 
 if __name__ == '__main__':
+    print('Its - MY BOT')
+    speak("Bot Here, How are you?")
+    wishMe()
 
     while True:
-        speak("How can I help you")
+        speak("How can I help you?")
         statement = takeCommand().lower()
+        
         if statement == 0:
             continue
 
@@ -125,36 +142,6 @@ if __name__ == '__main__':
             speak("Google Mail open")
             time.sleep(5)
 
-        elif "weather" in statement:
-            api_key = "8ef61edcf1c576d65d836254e11ea420"
-            base_url = "https://api.openweathermap.org/data/2.5/weather?"
-            speak("City ??")
-            city_name = takeCommand()
-            complete_url = base_url+"appid="+api_key+"&q="+city_name
-            response = requests.get(complete_url)
-            x = response.json()
-            if x["cod"] != "404":
-                y = x["main"]
-                current_temperature = y["temp"]
-                current_humidiy = y["humidity"]
-                z = x["weather"]
-                weather_description = z[0]["description"]
-                speak(" Temperature in kelvin unit is " +
-                      str(current_temperature) +
-                      "\n humidity in percentage is " +
-                      str(current_humidiy) +
-                      "\n description  " +
-                      str(weather_description))
-                print(" Temperature in kelvin unit = " +
-                      str(current_temperature) +
-                      "\n humidity (in percentage) = " +
-                      str(current_humidiy) +
-                      "\n description = " +
-                      str(weather_description))
-
-            else:
-                speak("What City, Again ?")
-
         elif 'time' in statement:
             strTime = datetime.datetime.now().strftime("%H:%M:%S")
             speak(f"the time is {strTime}")
@@ -182,7 +169,7 @@ if __name__ == '__main__':
                 if idx >= 5:
                     break
                 speak(item['title'])
-                
+
         elif "Camera coming up" in statement or "Take a picture" in statement:
             ec.capture(0, "robo camera", "img.jpg")
 
